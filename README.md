@@ -32,17 +32,6 @@
 
 ---
 
-## 📁 Project Structure
-
-/apps
-├── web → Frontend: Next.js + Tailwind CSS
-├── api → Main Next.js API (auth, wallet logic)
-└── services → Microservices (Express.js)
-
-/packages
-├── db → Prisma schema and client
-├── ui → Shared UI components
-├── config → Shared Tailwind, ESLint, Prettier configs
 
 ## ⚙️ Getting Started
 
@@ -68,6 +57,6 @@ pnpm db:generate
 # 4. Start development
 pnpm dev
 ```
-##❤️ Made with precision by
-**YashRawatTechnology**
+❤️ Made with precision by
+**YashRawatTechnology** ||
 Turning ideas into real-world systems.
