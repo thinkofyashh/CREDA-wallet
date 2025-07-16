@@ -1,6 +1,8 @@
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
 import { prisma } from "@repo/db";
+import { pages } from "next/dist/build/templates/app-page";
+import { signIn } from "next-auth/react";
 
 
 
@@ -87,4 +89,7 @@ export const authConfig = {
       return session;
     },
   },
+  pages:{
+    signIn:'/signin'
+  }
 };
