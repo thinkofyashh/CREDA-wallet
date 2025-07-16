@@ -1,26 +1,19 @@
+import { getServerSession } from "next-auth"
+import { authConfig } from "../../../lib/auth"
 import { NextResponse } from "next/server"
-import { prisma } from "@repo/db"
 
-export const GET = async () => {
-    try {
-        const user = await prisma.user.create({
-            data: {
-                email: "test@example.com",
-                password: "password123",
-                name: "John Doe",
-                phoneNumber:"98202892022"
-            }
-        })
-        
+
+export const GET=async ()=>{
+    const session =await getServerSession(authConfig)
+
+    if(session?.user){
         return NextResponse.json({
-            message: "User created successfully",
-            user: user
+            user:session.user
         })
-    } catch (error) {
-        console.error("Error creating user:", error)
-        return NextResponse.json({
-            message: "Failed to create user",
-            
-        }, { status: 500 })
     }
+    return NextResponse.json({
+        message:"You are logged out"
+    },{
+        status:403
+    })
 }
