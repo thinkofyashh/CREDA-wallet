@@ -60,7 +60,7 @@ export const Signin = () => {
           Login with your credentials
         </button>
         <p className="text-xs text-center text-gray-400 pt-4 border-t border-gray-100">
-          Made with ❤️ by <span className="font-semibold text-gray-600">Yashrawattechnology</span>
+          Made with ❤️ by <span className="font-semibold text-gray-600">Yash Rawat Technology</span>
         </p>
       </div>
     </div>
