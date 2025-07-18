@@ -21,7 +21,6 @@ export default function Layout({children}:{children:React.ReactNode;}):JSX.Eleme
     </>
 
 }
-
 function HomeIcon() {
     return (
       <svg
