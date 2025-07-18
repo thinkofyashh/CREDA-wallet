@@ -1,6 +1,8 @@
+import { AddMoneyCard } from "../../../components/AddMoneyCard";
+
 export default function Transfer(){
     return <div>
-        <h1>Transfer</h1>
+       <AddMoneyCard></AddMoneyCard>
     </div>
 
 }
