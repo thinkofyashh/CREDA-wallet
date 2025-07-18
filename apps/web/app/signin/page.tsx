@@ -20,7 +20,7 @@ export const Signin = () => {
 
     console.log(res);
     if (res?.ok) {
-      router.push("/");
+      router.push("/dashboard");
     } else {
       alert("Invalid credentials. Try again.");
     }
