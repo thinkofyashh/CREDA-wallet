@@ -5,7 +5,7 @@ export default function Layout({children}:{children:React.ReactNode;}):JSX.Eleme
     return <>
     <div className="flex">
         
-        <div className="w-72 border-r border-slate-300 min-h-screen pt-20 px-4">
+        <div className="w-72 border-r border-slate-300 min-h-screen pt-10 ">
             <SideBarItem href="/dashboard" title="Home" icon={<HomeIcon></HomeIcon>}></SideBarItem>
             <SideBarItem href="/transfer" title="Transfer" icon={<TransferIcon></TransferIcon>}></SideBarItem>
             <SideBarItem href="/transaction" title="Transaction" icon={<TransactionIcon></TransactionIcon>}></SideBarItem>
