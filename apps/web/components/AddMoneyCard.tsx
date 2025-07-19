@@ -3,6 +3,7 @@ import { Button } from "@repo/ui/button"
 import { Select } from "@repo/ui/Select"
 import { TextInput } from "@repo/ui/TextInput"
 import { useState } from "react"
+import { CreateOnRampTransaction } from "../lib/actions/createOnrampTransaction"
 
 
 
@@ -21,7 +22,7 @@ const SupportedBanks=[
 
 
 
-export const AddMoneyCard = () => {
+export const AddMoneyCard =() => {
   const [redirectUrl, setRedirectUrl] = useState(SupportedBanks[0]?.redirectUrl);
 
   return (
@@ -47,8 +48,13 @@ export const AddMoneyCard = () => {
       </div>
 
       <Button
-        onClick={() => {
+        onClick={async() => {
           if (redirectUrl) {
+            await CreateOnRampTransaction({
+                provider:"SBI",
+                amount:100,
+                status:"PENDING",
+            })
             window.location.href = redirectUrl;
           } else {
             alert("Please select a bank.");
