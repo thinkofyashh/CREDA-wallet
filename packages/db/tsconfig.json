@@ -1,8 +1,9 @@
 {
   "extends":"../typescript-config/base.json",
   "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist"
+    "rootDir": ".",
+    "outDir": "./dist",
+    "types": ["node"]
   },
   "include": ["src","prisma"],
   "exclude": ["dist","node_modules"]
