@@ -57,7 +57,7 @@ export const AddMoneyCard =() => {
           if (redirectUrl) {
             await CreateOnRampTransaction({
                 provider:bankName,
-                amount:Number(amount),
+                amount:Number(amount)*100,
                 status:"PENDING",
             })
             window.location.href = redirectUrl;
