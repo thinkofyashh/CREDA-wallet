@@ -31,41 +31,47 @@ export async function p2ptransfer({to,amount}:p2ptransferProps){
             message:"User not found"
         }
     }
-    const fromBalance=await prisma.balance.findUnique({
-        where:{
-            userId:Number(from)
-        }
-    })
-    if(!fromBalance || fromBalance.amount < Number(amount)){
-        return {
-            message:"Insufficient Balance"
-        }
-}
+   
 
-    await prisma.$transaction(
-       [
-          prisma.balance.update({
+    await prisma.$transaction(async(tx)=>{
+
+        await tx.$queryRaw`SELECT * FROM "Balance" WHERE "userId" = ${Number(from)} FOR UPDATE`;
+
+        console.log("sleep")
+
+        const fromBalance=await tx.balance.findUnique({
             where:{
                 userId:Number(from)
             },
-            data:{
-                amount:{
-                    decrement:Number(amount)
-                }
-            }
-        }),
-
-         prisma.balance.update({
-            where:{
-                userId:toUser.id
-                
-            },
-            data:{
-                amount:{
-                    increment:Number(amount)
-                }
-            }
+           
         })
-       ]
+        if(!fromBalance || fromBalance.amount < Number(amount)){
+            throw new Error("Insufficient Balance")
+    }
+    await tx.balance.update({
+        where:{
+            userId:Number(from)
+        },
+        data:{
+            amount:{
+                decrement:Number(amount)
+            }
+        }
+    })
+    
+    await  tx.balance.update({
+        where:{
+            userId:toUser.id
+            
+        },
+        data:{
+            amount:{
+                increment:Number(amount)
+            }
+        }
+    })
+    }
+       
     )
 }
+
