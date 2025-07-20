@@ -2,19 +2,24 @@
   "name": "bank_webhook",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.ts",
+    "start": "node index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/express": "^5.0.3",
-    "esbuild": "^0.25.6",
-    "tailwind-config": "workspace:*",
     "@repo/db": "workspace:*",
-    "@repo/typescript-config": "workspace:*"
-    
+    "@repo/typescript-config": "workspace:*",
+    "esbuild": "^0.25.6",
+    "express": "^5.1.0",
+    "tailwind-config": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "nodemon": "^3.1.10"
   }
 }
