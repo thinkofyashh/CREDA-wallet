@@ -1,6 +1,8 @@
+import { PeerToPeerTransactionCard } from "../../../components/PeerToPeerCard";
+
 export default function Transaction(){
     return <div>
-        <h1>Transaction</h1>
+        <PeerToPeerTransactionCard></PeerToPeerTransactionCard>
     </div>
 
 }

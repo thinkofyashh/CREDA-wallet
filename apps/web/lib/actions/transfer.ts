@@ -73,7 +73,7 @@ export async function p2ptransfer({to,amount}:p2ptransferProps){
 
     await tx.p2ptransfer.create({
         data:{
-            fromUserId:from,
+            fromUserId:Number(from),
             amount:Number(amount),
             timeStamp:new Date(),
             toUserId:toUser.id
