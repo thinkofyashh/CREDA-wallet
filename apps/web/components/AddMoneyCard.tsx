@@ -24,13 +24,17 @@ const SupportedBanks=[
 
 export const AddMoneyCard =() => {
   const [redirectUrl, setRedirectUrl] = useState(SupportedBanks[0]?.redirectUrl);
+  const [amount,setAmount]=useState("");
+  const[bankName,setBankName]=useState("");
 
   return (
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-2xl shadow-xl space-y-6 border border-gray-200">
       <h1 className="text-2xl font-bold text-gray-800 text-center">Add Money</h1>
 
       <div className="space-y-2">
-        <TextInput label="Amount" placeholder="Enter amount" onChange={() => {}} />
+        <TextInput label="Amount" placeholder="Enter amount" onChange={(value:string):void=>{
+            setAmount(value)
+        }} />
       </div>
 
       <div className="space-y-2">
@@ -38,6 +42,7 @@ export const AddMoneyCard =() => {
         <Select
           onSelect={(value) => {
             const selectedBank = SupportedBanks.find(bank => bank.name === value);
+            if(selectedBank) setBankName(selectedBank.name)
             setRedirectUrl(selectedBank?.redirectUrl || "");
           }}
           options={SupportedBanks.map(bank => ({
@@ -51,8 +56,8 @@ export const AddMoneyCard =() => {
         onClick={async() => {
           if (redirectUrl) {
             await CreateOnRampTransaction({
-                provider:"SBI",
-                amount:100,
+                provider:bankName,
+                amount:Number(amount),
                 status:"PENDING",
             })
             window.location.href = redirectUrl;
