@@ -10,11 +10,11 @@ import { CreateOnRampTransaction } from "../lib/actions/createOnrampTransaction"
 const SupportedBanks=[
     {
         name:"HDFC",
-        redirectUrl:"https://www.hdfc.com/"
+        redirectUrl:"https://netbanking.hdfcbank.com/netbanking/"
     },
     {
         name:"AXIS",
-        redirectUrl:"https://www.axisbank.com/"
+        redirectUrl:"https://omni.axisbank.co.in/axisretailbanking/"
     }
 
 ]
