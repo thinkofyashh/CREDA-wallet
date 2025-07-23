@@ -11,17 +11,15 @@ jobs:
 
     steps:
       - name: 📥 Clone the repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: 🔧 Setup Node.js 18 and pnpm
-        uses: actions/setup-node@v2
+      - name: 🔧 Setup Node.js 20 and pnpm
+        uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'
 
-      - name: 📦 Enable Corepack and Activate pnpm@9
-        run: |
-          corepack enable
-          corepack prepare pnpm@9.0.0 --activate
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: 📦 Install dependencies using pnpm
         run: pnpm install
