@@ -22,6 +22,11 @@ const SupportedBanks=[
 
 
 
+
+
+
+
+
 export const AddMoneyCard =() => {
   const [redirectUrl, setRedirectUrl] = useState(SupportedBanks[0]?.redirectUrl);
   const [amount,setAmount]=useState("");
