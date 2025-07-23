@@ -207,4 +207,6 @@ export const Signin = () => {
   );
 };
 
-export default Signin;
+export default function SignInPage() {
+  return <Signin />;
+}
