@@ -25,7 +25,11 @@ export const SendMoneyCard=()=>{
                     setPnumber(value);
                 }}
               />
-      
+        
+
+
+
+        
               <TextInput
                 placeholder="Enter the amount"
                 label="Amount"
