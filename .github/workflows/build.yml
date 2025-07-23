@@ -29,8 +29,8 @@ jobs:
       - name: 🔄 Generate Prisma Client
         run: pnpm run db:generate
 
-      - name: 🏗️ Build Turborepo
-        run: pnpm turbo run build
+      - name: 🏗️ Build the project 
+        run: pnpm run build
 
 
 
