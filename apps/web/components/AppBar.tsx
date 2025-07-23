@@ -8,6 +8,10 @@ export const AppBar=()=>{
     const router=useRouter();
     const pathname =usePathname()
 
+
+
+
+    
     if(pathname=='/signin') return null;
     return <>
     <div className="shadow-md bg-white">
