@@ -61,7 +61,7 @@ export const Signin = () => {
         <div className="relative z-10 p-12 flex flex-col justify-center text-white space-y-8">
           {/* Logo/Brand Section */}
           <div className="space-y-4">
-            <h1 className="text-4xl font-light tracking-wider">CREDA</h1>
+            <h1 className="text-4xl font-light tracking-wider">CREDA.</h1>
             <div className="w-20 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
           </div>
 
