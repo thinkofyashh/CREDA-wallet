@@ -1,0 +1,33 @@
+# Use Node.js base image
+FROM node:20-alpine
+
+# Create app directory
+WORKDIR /app
+
+# Install pnpm globally
+RUN npm install -g pnpm@9.0.0
+
+# Copy monorepo root files
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml turbo.json ./
+
+# Copy apps and packages folders
+COPY apps ./apps
+COPY packages ./packages
+
+# Install all workspace dependencies
+RUN pnpm install
+
+RUN pnpm run db:generate
+
+
+
+# Set working dir to bank_webhook
+WORKDIR /app/apps/bank_webhook
+
+RUN pnpm add -D ts-node typescript @types/node
+# Expose port (change if different)
+EXPOSE 3003
+
+# Run the dev server using ts-node directly
+CMD ["pnpm", "exec", "ts-node", "src/index.ts"]
+
