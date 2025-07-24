@@ -17,6 +17,7 @@ COPY packages ./packages
 # Install all workspace dependencies
 RUN pnpm install
 
+#installing prisam client
 RUN pnpm run db:generate
 
 
@@ -24,6 +25,7 @@ RUN pnpm run db:generate
 # Set working dir to bank_webhook
 WORKDIR /app/apps/bank_webhook
 
+# installing all this in the bank_webhook workspace 
 RUN pnpm add -D ts-node typescript @types/node
 # Expose port (change if different)
 EXPOSE 3003
