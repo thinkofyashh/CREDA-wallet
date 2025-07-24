@@ -17,18 +17,18 @@ COPY packages ./packages
 # Install all workspace dependencies
 RUN pnpm install
 
-RUN pnpm
+RUN pnpm run db:generate
 
-# Install ts-node globally (no nodemon)
-RUN pnpm add -g ts-node
+
 
 # Set working dir to bank_webhook
 WORKDIR /app/apps/bank_webhook
 
+RUN pnpm add -D ts-node typescript @types/node
 # Expose port (change if different)
 EXPOSE 3003
 
 # Run the dev server using ts-node directly
-CMD ["ts-node", "src/index.ts"]
+CMD ["pnpm", "exec", "ts-node", "src/index.ts"]
 
 
